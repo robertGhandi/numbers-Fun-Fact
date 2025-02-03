@@ -70,7 +70,7 @@ Fetches properties of a given number.
 
 #### **Example Request**
 ```sh
-GET /api/classify-number?number=371
+GET /api/classify-number?number=28
 ```
 
 #### **Example Response**
