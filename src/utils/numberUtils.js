@@ -35,4 +35,4 @@ function getProperties(num) {
 	return properties;
 }
 
-export { isPrime, isPerfect, isArmstrong, getProperties };
+export { isPrime, isPerfect, getProperties };
