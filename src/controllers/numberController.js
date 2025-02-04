@@ -5,7 +5,7 @@ const getNumberProperties = async (req, res) => {
 	const { number } = req.query;
 	const parsedNum = Number(number);
 
-	if (!number || isNaN(parsedNum)) {
+	if (!number || isNaN(parsedNum) ||!Number.isInteger(parsedNum)) {
 		return res.status(400).json({
 			number: number || "missing number in query",
 			error: true,

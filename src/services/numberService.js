@@ -17,7 +17,7 @@ const calculateNumberProperties = (number) => {
 		is_prime: isPrime(number),
 		is_perfect: isPerfect(number),
 		properties: getProperties(number),
-		digit_sum: number
+		digit_sum: Math.abs(number)
 			.toString()
 			.split("")
 			.reduce((acc, digit) => acc + Number(digit), 0),
