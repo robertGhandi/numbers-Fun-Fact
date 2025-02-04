@@ -1,7 +1,7 @@
 import { isPrime, isPerfect, getProperties } from "../utils/numberUtils.js";
 import axiosInstance from "../config/axiosInstance.js";
 
-const getNumberFunFAct = async (number) => {
+const getNumberFunFact = async (number) => {
 	try {
 		const response = await axiosInstance.get(
 			`http://numbersapi.com/${number}/math`
@@ -24,4 +24,4 @@ const calculateNumberProperties = (number) => {
 	};
 };
 
-export { getNumberFunFAct, calculateNumberProperties };
+export { getNumberFunFact, calculateNumberProperties };
