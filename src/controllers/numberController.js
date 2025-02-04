@@ -1,10 +1,5 @@
-import axios from "axios";
-import { isPrime, isPerfect, getProperties } from "../utils/numberUtils.js";
-
-const axiosInstance = axios.create({
-	timeout: 3000,
-	headers: { Connection: "keep-alive" },
-});
+// Purpose: Controller for handling requests to get number properties
+import { getNumberFunFAct, calculateNumberProperties } from "../services/numberService.js";
 
 const getNumberProperties = async (req, res) => {
 	const { number } = req.query;
@@ -18,20 +13,14 @@ const getNumberProperties = async (req, res) => {
 	}
 
 	try {
-		const funFactResponse = await axiosInstance.get(
-			`http://numbersapi.com/${parsedNum}/math`
-		);
-		const funFact = funFactResponse.data;
+		const [ funFact, properties ] = await Promise.all([
+            getNumberFunFAct(parsedNum),
+            calculateNumberProperties(parsedNum),
+        ]);
 
 		return res.status(200).json({
 			number: parsedNum,
-			is_prime: isPrime(parsedNum),
-			is_perfect: isPerfect(parsedNum),
-			properties: getProperties(parsedNum),
-			digit_sum: parsedNum
-				.toString()
-				.split("")
-				.reduce((acc, digit) => acc + Number(digit), 0),
+			...properties,
 			fun_fact: funFact,
 		});
 	} catch (error) {
