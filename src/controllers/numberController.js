@@ -1,5 +1,5 @@
 // Purpose: Controller for handling requests to get number properties
-import { getNumberFunFAct, calculateNumberProperties } from "../services/numberService.js";
+import { getNumberFunFact, calculateNumberProperties } from "../services/numberService.js";
 
 const getNumberProperties = async (req, res) => {
 	const { number } = req.query;
@@ -14,7 +14,7 @@ const getNumberProperties = async (req, res) => {
 
 	try {
 		const [ funFact, properties ] = await Promise.all([
-            getNumberFunFAct(parsedNum),
+            getNumberFunFact(parsedNum),
             calculateNumberProperties(parsedNum),
         ]);
 
