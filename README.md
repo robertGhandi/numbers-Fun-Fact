@@ -28,10 +28,14 @@ Here's an example:
 ```
 /project-root
 │── /src
+|   ├── /config
+│   │   ├── axiosInstance.js 
 │   ├── /routes
 │   │   ├── numberRoutes.js         
 │   ├── /controllers
-│   │   ├── numberController.js     
+│   │   ├── numberController.js  
+|   ├── /services
+│   │   ├── numberService.js 
 │   ├── /utils
 │   │   ├── numberUtils.js          
 │   ├── app.js                      
@@ -65,7 +69,8 @@ By default, the server will run on `http://localhost:3000`.
 
 ## 📌 API Endpoint
 
-### **GET /number/:num**
+### **GET https://numbers-fun-fact.vercel.app/api/classify-number**
+### **GET http://localhost:3000/api/classify-number**
 Fetches properties of a given number.
 
 #### **Example Request**
